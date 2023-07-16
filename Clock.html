@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ramu's Clock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+    <style>
+        #head{
+            font-size: 2.5rem;
+        }
+        #time{
+            font-size: 7rem;
+            font-family:sans-serif, serif;
+
+        }
+        #extras{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .all{
+            text-align: center;
+            font-family: 'Bree Serif', serif;
+        }
+        .extra{
+            font-size: 2rem;
+            width: 250px;
+            border: 1px solid black;
+            padding: 1rem 0px;
+            margin: 2rem 0px 0px 0px;
+            background-color: yellowgreen;
+        }
+        #fullTime{
+            margin: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="all" id="head">
+        <h1 id="heading">
+            Clock Using JavaScript
+        </h1>
+        <h3 id="slogan" style="font-family: serif;">
+            made with love by ramu
+        </h3>
+    </div>
+    <div class="all" id="time">
+        time.
+    </div>
+    <div class="all" id="extras">
+        <div class="extra" id="extra1">monday</div>
+        <div class="extra" id="extra2">27</div>
+        <div class="extra" id="extra3">june</div>
+        <div class="extra" id="extra4">2004</div>
+    </div>
+    <div class="all" id="fullTime">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, accusantium.
+    </div>
+
+    <script>
+        const date= new Date();
+        const darr=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+        const marr=['Jan','Feb','Mar','Apr',"May",'June','July','Aug','Sep','Oct','Nov','Dec'];
+        let date1;
+        let extra1= document.getElementById("extra1");
+        let extra2= document.getElementById("extra2");
+        let extra3= document.getElementById("extra3");
+        let extra4= document.getElementById("extra4");
+        let fullTime = document.getElementById("fullTime");
+        let time= document.getElementById("time");
+        time.innerHTML=`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+        setInterval(()=>{
+        date1= new Date();
+        time.innerHTML=`${date1.getHours()}:${date1.getMinutes()}:${date1.getSeconds()}`;
+        fullTime.innerHTML= date1.toString();
+        },1000)
+        extra1.innerHTML= darr[date.getDay()];
+        extra2.innerHTML= `${date.getDate()}th `;
+        extra3.innerHTML= marr[date.getMonth() -1];
+        extra4.innerHTML= date.getFullYear();
+
+    </script>
+    
+</body>
+</html>
